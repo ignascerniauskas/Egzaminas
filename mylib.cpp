@@ -84,7 +84,7 @@ map<string, vector<pair<int, int>>> rasti_zodzius(const string& tekstas) {
 }
 
 
-void Domenai(set<string>& domenas) { // domenu galuniu sudejimas i set
+void domenai(set<string>& domenas) { // domenu galuniu sudejimas i set
     ifstream domenaif;
     string tld;
     string failo_pav = "domenai.txt";
@@ -92,7 +92,7 @@ void Domenai(set<string>& domenas) { // domenu galuniu sudejimas i set
     while (true) {
         domenaif.open(failo_pav);
         if (domenaif.is_open()) {
-            while (getline(domenaif, tld)) {//skaitymas ie eiles
+            while (getline(domenaif, tld)) {//skaitymas iš eiles
                 if (!tld.empty()) {
                     domenas.insert(tld);
                 }
@@ -101,7 +101,7 @@ void Domenai(set<string>& domenas) { // domenu galuniu sudejimas i set
             break;
         }
         else {
-            cerr << "Nepavyko atidaryti failo, iveskite pavadinima failo " << failo_pav;
+            cerr << "Nepavyko atidaryti failo, iveskite failo pavadinima";
             cin >> failo_pav;
 
             domenaif.clear();
@@ -109,21 +109,21 @@ void Domenai(set<string>& domenas) { // domenu galuniu sudejimas i set
     }
 }
 
-void Adresas(const string& tekstas, const set<string>& domenas, vector<string>& urls) {
-    string tldreguliari_israiska;//reguliari israiska
-    for (const auto& tld : domenas) {//for ciklas iteruos per domenas
-        if (!tldreguliari_israiska.empty()) {//jei netuscia
+void rasti_url(const string& tekstas, const set<string>& domenas, vector<string>& urls) {
+    string tldreguliari_israiska;
+    for (const auto& tld : domenas) {
+        if (!tldreguliari_israiska.empty()) {
             tldreguliari_israiska += "|";
         }
-        tldreguliari_israiska += "\\." + tld;//pasaliname taska
+        tldreguliari_israiska += "\\." + tld;
     }
 
-    regex urlRegex("(https?://)?[a-zA-Z0-9\\-\\.]+(" + tldreguliari_israiska + ")\\b");// turi atitikti tldreguliari israiska su b atskiriame
+    regex urlRegex("(https?://)?[a-zA-Z0-9\\-\\.]+(" + tldreguliari_israiska + ")\\b");
     auto zodis_pradzia = sregex_iterator(tekstas.begin(), tekstas.end(), urlRegex);
-    auto zodis_pabaiga = sregex_iterator();// auto iteruoja nuo pradzios iki pabaigos
+    auto zodis_pabaiga = sregex_iterator();
 
     for (sregex_iterator i = zodis_pradzia; i != zodis_pabaiga; ++i) {
-        urls.push_back((*i).str());//pridedame su push back'u
+        urls.push_back((*i).str());
     }
 }
 

@@ -17,8 +17,8 @@ int main() {
     map<string, vector<pair<int, int>>> zodziu_vieta = rasti_zodzius(tekstas);
     vector<string> url;
     set<string> domenas;
-    Domenai(domenas);
-    Adresas(tekstas, domenas, url);
+    domenai(domenas);
+    rasti_url(tekstas, domenas, url);
 
     char pasirinkimas;
     cout<<"Ar norite rezultatus matyti ekrane-E, ar faile-F? :";
