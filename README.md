@@ -1,6 +1,6 @@
 # Egzaminas
 
-#Užduoties formuluotė:
+# Užduoties formuluotė:
 pateiktame tekste rasti: visus žodžius kurie pasikartoja daugoau nei vieną kartą ir suskaičiuoti kiek kartų pasikartoja kiekvienas žodis; rasti kurioje eilutėje/ėse yra žodžiai pasikratojantis daugiau nei vieną kartą; rasti visus URL adresus tekste. Darbe yra naudojami asociatyvūs konteineriai tokie kaip map<>, set<> ir panašiai, nes šioje užduotyje jų naudojmas yra efektyvesnis.
 
 #Tekstas:
