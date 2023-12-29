@@ -140,10 +140,11 @@ void zodziu_pasikartojimas(const map<string, int>& zodziu_skaicius) {
         if (pair.second > 1) {
             int dydis=pair.first.size() - lt_raidziu_dydis(pair.first);
             outputFile<<"| "<<left<<setw(25+dydis)<<pair.first<<"| "<<left<<setw(25)<<pair.second<<left<<" |"<<endl;
+            outputFile<<"--------------------------------------------------------"<<endl;
+
         }
     }
 
-    outputFile<<"--------------------------------------------------------"<<endl;
     outputFile.close();
 }
 
@@ -155,8 +156,9 @@ void adresai(const vector<string> urls){
     outputFile<<"------------------------------------------------------"<<endl;
     for (const string& url : urls) {
         outputFile<<"| "<<setw(50)<<left<<url<<" |"<<endl;
+        outputFile<<"------------------------------------------------------"<<endl;
+
     }
-    outputFile<<"------------------------------------------------------"<<endl;
 
 }
 
@@ -179,9 +181,10 @@ void zodziu_eilutes(const map<string, vector<pair<int, int>>>& zodziu_vieta) {
             }
             string eilute = eilutes_srautas.str();
             outputFile << left<< setw(150)<<eilute<<" |" << endl;
+            outputFile << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
         }
     }
-    outputFile << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 }
 
 
@@ -197,9 +200,10 @@ void zodziu_pasikartojimas_ekrane(const map<string, int>& zodziu_skaicius){
         if (pair.second > 1) {
             int dydis=pair.first.size() - lt_raidziu_dydis(pair.first);
             cout<<"| "<<left<<setw(25+dydis)<<pair.first<<"| "<<left<<setw(25)<<pair.second<<left<<" |"<<endl;
+            cout<<"--------------------------------------------------------"<<endl;
+
             }
     }
-    cout<<"--------------------------------------------------------"<<endl;
     cout<<'\n';
 
 }
@@ -210,8 +214,9 @@ void adresai_ekrane(const vector<string> urls){
     cout<<"------------------------------------------------------"<<endl;
     for (const string& url : urls) {
         cout<<"| "<<setw(50)<<left<<url<<" |"<<endl;
+        cout<<"------------------------------------------------------"<<endl;
+
     }
-    cout<<"------------------------------------------------------"<<endl;
 
 
 }
@@ -234,8 +239,9 @@ void zodziu_eilutes_ekrane(const map<string, vector<pair<int, int>>>& zodziu_vie
             }
             string eilute = eilutes_srautas.str();
             cout << left<< setw(150)<<eilute<<" |" << endl;
+            cout << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
         }
     }
-    cout << "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
     cout<<'\n';
 }
